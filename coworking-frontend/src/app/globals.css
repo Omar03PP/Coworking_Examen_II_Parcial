@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #edeeea;
+  --ink-soft: #9ba39a;
+  --paper: #14161a;
+  --surface: #1b1e22;
+  --surface-2: #202327;
+  --line: #2b2f33;
+  --accent: #4c9a76;
+  --accent-soft: #1e3b2c;
+  --accent-dim: #6bb894;
+  --gold: #d4ac5c;
+  --gold-soft: #3a311e;
+  --danger: #d9694a;
+  --danger-soft: #3a241c;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

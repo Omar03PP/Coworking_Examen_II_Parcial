@@ -1,0 +1,81 @@
+[31m[Nest] 12636  - [39m08/07/2026, 7:38:03 p. m. [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mPrismaClientKnownRequestError: 
+Invalid `this.prisma.review.findMany()` invocation in
+D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\dist\src\reviews\reviews.service.js:47:35
+
+  44     });
+  45 }
+  46 findBySpace(spaceId) {
+→ 47     return this.prisma.review.findMany(
+The column `main.Review.createdAt` does not exist in the current database.
+    at zr.handleRequestError [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:65:8286[90m)[39m
+    at zr.handleAndLogRequestError [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:65:7581[90m)[39m
+    at zr.request [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:65:7288[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)[39m
+    at async a [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:75:6862[90m)[39m
+    at async [90mD:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@nestjs\core[24m\router\router-execution-context.js:47:62
+    at async [90mD:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@nestjs\core[24m\router\router-proxy.js:9:17 {
+  code: [32m'P2022'[39m,
+  meta: {
+    modelName: [32m'Review'[39m,
+    driverAdapterError: DriverAdapterError: ColumnNotFound
+        at PrismaBetterSqlite3Adapter.onError [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\adapter-better-sqlite3[24m\dist\index.js:569:11[90m)[39m
+        at PrismaBetterSqlite3Adapter.performIO [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\adapter-better-sqlite3[24m\dist\index.js:564:12[90m)[39m
+        at PrismaBetterSqlite3Adapter.queryRaw [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\adapter-better-sqlite3[24m\dist\index.js:505:63[90m)[39m
+        at [90mD:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:44665
+        at xr [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:26627[90m)[39m
+        at #u [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:47965[90m)[39m
+        at e.interpretNode [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:44634[90m)[39m
+        at e.interpretNode [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:43755[90m)[39m
+        at e.interpretNode [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:46296[90m)[39m
+        at e.run [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:43346[90m)[39m {
+      cause: {
+        originalCode: [32m'SQLITE_ERROR'[39m,
+        originalMessage: [32m'no such column: main.Review.createdAt'[39m,
+        kind: [32m'ColumnNotFound'[39m,
+        column: [32m'main.Review.createdAt'[39m
+      }
+    }
+  },
+  clientVersion: [32m'7.8.0'[39m
+}
+[31m[Nest] 12636  - [39m08/07/2026, 7:38:11 p. m. [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mPrismaClientKnownRequestError: 
+Invalid `this.prisma.review.findUnique()` invocation in
+D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\dist\src\reviews\reviews.service.js:30:51
+
+  27     throw new common_1.ForbiddenException('No puedes reseñar una reserva que no te pertenece');
+  28 if (reservation.status !== 'FINALIZED')
+  29     throw new common_1.BadRequestException('Solo puedes reseñar reservas finalizadas');
+→ 30 const existing = await this.prisma.review.findUnique(
+The column `main.Review.createdAt` does not exist in the current database.
+    at zr.handleRequestError [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:65:8286[90m)[39m
+    at zr.handleAndLogRequestError [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:65:7581[90m)[39m
+    at zr.request [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:65:7288[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)[39m
+    at async a [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:75:6862[90m)[39m
+    at async ReviewsService.create [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mdist\src\reviews\reviews.service.js:30:26[90m)[39m
+    at async [90mD:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@nestjs\core[24m\router\router-execution-context.js:47:62
+    at async [90mD:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@nestjs\core[24m\router\router-proxy.js:9:17 {
+  code: [32m'P2022'[39m,
+  meta: {
+    modelName: [32m'Review'[39m,
+    driverAdapterError: DriverAdapterError: ColumnNotFound
+        at PrismaBetterSqlite3Adapter.onError [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\adapter-better-sqlite3[24m\dist\index.js:569:11[90m)[39m
+        at PrismaBetterSqlite3Adapter.performIO [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\adapter-better-sqlite3[24m\dist\index.js:564:12[90m)[39m
+        at PrismaBetterSqlite3Adapter.queryRaw [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\adapter-better-sqlite3[24m\dist\index.js:505:63[90m)[39m
+        at [90mD:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:44665
+        at xr [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:26627[90m)[39m
+        at #u [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:47965[90m)[39m
+        at e.interpretNode [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:44634[90m)[39m
+        at e.interpretNode [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:45076[90m)[39m
+        at e.interpretNode [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:46296[90m)[39m
+        at e.run [90m(D:\UNICAH\II PERIODO 2026\SEMINARIO-TALLER DE SOFTWARE\Proyectos Seminario de Sotfware\EXAMEN_II_PARCIAL\coworking\[39mnode_modules\[4m@prisma\client[24m\runtime\client.js:11:43346[90m)[39m {
+      cause: {
+        originalCode: [32m'SQLITE_ERROR'[39m,
+        originalMessage: [32m'no such column: main.Review.createdAt'[39m,
+        kind: [32m'ColumnNotFound'[39m,
+        column: [32m'main.Review.createdAt'[39m
+      }
+    }
+  },
+  clientVersion: [32m'7.8.0'[39m
+}

@@ -1,0 +1,128 @@
+generator client {
+  provider     = "prisma-client-js"
+  output       = "../generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider  = "postgresql"
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  name          String
+  email         String         @unique
+  password      String
+  role          String         @default("USER")
+  status        Boolean        @default(true)
+  avatarUrl     String?
+  favorites     Favorite[]
+  reviews       Review[]
+  notifications Notification[]
+  reservations  Reservation[]
+  activityLogs  ActivityLog[]
+  waitlist      Waitlist[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model Space {
+  id           Int           @id @default(autoincrement())
+  name         String
+  description  String?
+  location     String
+  capacity     Int
+  type         String
+  imageUrl     String?
+  status       Boolean       @default(true)
+  amenities    Amenity[]
+  favorites    Favorite[]
+  reviews      Review[]
+  reservations Reservation[]
+  waitlist     Waitlist[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Amenity {
+  id      Int    @id @default(autoincrement())
+  name    String
+  icon    String?
+  spaceId Int
+  space   Space  @relation(fields: [spaceId], references: [id], onDelete: Cascade)
+}
+
+model Favorite {
+  id      Int   @id @default(autoincrement())
+  userId  Int
+  spaceId Int
+  user    User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  space   Space @relation(fields: [spaceId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, spaceId])
+}
+
+model Review {
+  id            Int         @id @default(autoincrement())
+  rating        Int
+  comment       String?
+  userId        Int
+  spaceId       Int
+  reservationId Int         @unique
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  space         Space       @relation(fields: [spaceId], references: [id], onDelete: Cascade)
+  reservation   Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+  createdAt     DateTime    @default(now())
+}
+
+model Reservation {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  spaceId   Int
+  startTime DateTime
+  endTime   DateTime
+  status    String   @default("PENDING")
+  reason    String?
+
+  user      User     @relation(fields: [userId], references: [id])
+  space     Space    @relation(fields: [spaceId], references: [id])
+  review    Review?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  type      String
+  message   String
+  read      Boolean  @default(false)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model ActivityLog {
+  id        Int      @id @default(autoincrement())
+  userId    Int?
+  action    String
+  entity    String
+  entityId  Int?
+  metadata  String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  createdAt DateTime @default(now())
+}
+
+model Waitlist {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  spaceId   Int
+  startTime DateTime
+  endTime   DateTime
+  status    String   @default("WAITING")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  space     Space    @relation(fields: [spaceId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, spaceId, startTime, endTime])
+}
